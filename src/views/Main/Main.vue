@@ -1,24 +1,25 @@
 <template>
-  <div class="main">
-    <!-- Home 和 User 的路由占位符 -->
-     <keep-alive>
-      <router-view></router-view>
-     </keep-alive>
-
-     <!-- 底部的 TabBar -->
-    <van-tabbar route>
-      <van-tabbar-item icon="home-o" to="/">首页</van-tabbar-item>
-      <van-tabbar-item icon="user-o" to="/user">我的</van-tabbar-item>
+  <div class="layout">
+    <!-- 1. 用来显示 / 的子路由的 容器 -> router-view -->
+    <router-view></router-view>
+    <!-- 2. 菜单 -->
+    <van-tabbar v-model="active">
+      <van-tabbar-item icon="wap-home" to="/">首页</van-tabbar-item>
+      <van-tabbar-item icon="question" to="/question">问答</van-tabbar-item>
+      <van-tabbar-item icon="video" to="/video">视频</van-tabbar-item>
+      <van-tabbar-item icon="manager">我的</van-tabbar-item>
     </van-tabbar>
-
   </div>
 </template>
 
 <script>
 export default {
-  name: 'Main'
+  data () {
+    return {
+      active: 0
+    }
+  }
 }
 </script>
 
-<style>
-</style>
+<style></style>

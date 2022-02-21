@@ -1,68 +1,51 @@
-// 1.导入request.js文件
+// 导入Axios实例
 import request from '../utils/request'
 
 /**
- * getUserChannelAPI 获取用户频道数据
- * @param 无
- * @returns Promise
+ * 获取用户的频道
+ * @returns Array 用户频道数据
  */
-export const getUserChannelAPI = () => {
-  return request.get('/v1_0/user/channels')
+export const getUserChannels = () => {
+  return request.get('/user/channels')
 }
 
 /**
- * 获取文章列表
- * @param {*} Id 频道ID
- * @param {*} time 时间戳
+ * 获取文章新闻推荐
+ * @param {*} channelId 频道Id
+ * @param {*} timestamp 时间戳
+ * @returns Array 文章列表
  */
-export const getArticleListAPI = (Id, time) => {
-  return request.get('/v1_0/articles', {
+export const getArticles = (channelId, timestamp) => {
+  return request.get('/articles', {
     params: {
-      channel_id: Id, // 频道的 Id
-      timestamp: time // 时间戳
+      channel_id: channelId,
+      timestamp: timestamp
     }
   })
 }
 
 /**
- * 将文章设置为不感兴趣
- * @param {*} id 文章Id
- * @returns
+ * 对文章不喜欢
+ * @param {*} targetId 文章Id
+ * @returns 返回 不喜欢的文章id
  */
-export const dislikeArticleAPI = (id) => {
-  return request.post('/v1_0/article/dislikes', {
-    target: id
+export const disLikeArticle = (targetId) => {
+  return request.post('/article/dislikes', {
+    target: targetId
   })
 }
 
 /**
  * 举报文章
- * @param {String| Number} id 文章Id
- * @param { Number } type 举报的类型的标识符
- * @returns
+ * @param {*} targetId 举报的文章id
+ * @param {*} type 举报的文章id
+ * @param {*} remark  其他问题 的附加说明
+ * @returns 返回数据 文章id和举报类型
  */
-export const reportArticleAPI = (id, type) => {
-  return request.post('/v1_0/article/reports', {
-    target: id,
-    type: type
-  })
-}
-
-/**
- * 获取所有频道列表
- * @returns
- */
-export const getAllChannelAPI = () => {
-  return request.get('/v1_0/channels')
-}
-
-/**
- * 更新用户的频道
- * @param { Array<Object> } channels
- * @returns
- */
-export const updateUserChannelAPI = (channels) => {
-  return request.put('/v1_0/user/channels', {
-    channels
+export const reportArticle = (targetId, type, remark) => {
+  return request.post('/article/reports', {
+    target: targetId, // 文章的 Id
+    type, // 举报的类型
+    remark
   })
 }
