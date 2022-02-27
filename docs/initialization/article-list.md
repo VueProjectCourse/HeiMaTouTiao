@@ -544,10 +544,247 @@ async initArtList() {
 ## 下拉刷新
 
 ::: tip 目标
-这一小节，我们的目标是完成下拉刷新功能，
+这一小节，我们的目标是完成下拉刷新功能，基于 Vant 的 [PullRefresh 下拉刷新](https://vant-contrib.gitee.io/vant/#/zh-CN/pull-refresh)组件，可以轻松实现列表的下拉刷新效果
+
+:::
+
+::: warning 步骤
+
+1. 在 `ArtList.vue` 组件的 `data` 中声明`isLoading`
+2. 在 `ArtList.vue` 组件的模板结构中，在 `<van-list>` 之外包裹实现下拉刷新的 `<van-pull-refresh>` 组件
+3. 在 `ArtList.vue` 组件的 `methods` 中，声明 `@refresh` 的事件处理函数 `onRefresh`
+4. 在 `ArtList.vue` 组件 `methods` 节点下的 `onRefresh` 方法中，调用 `initArtList` 函数请求下拉刷新的数据
+5. 改造 `methods` 中的 `initArtList` 函数，通过形参接收调用者传递过来的值
+6. 进一步改造 `initArtList` 函数，根据 `isRefresh` 的值，来决定如何拼接请求到的数据
+7. 没有更多数据时，禁用下拉刷新的效果
+:::
+
+::: info 体验
+
+* **Step.1：在 `ArtList.vue` 组件的 `data` 中声明`isLoading`**
+
+```js
+data() {
+  return {
+    // 省略其它的数据项...
+
+    // 是否正在进行下拉刷新的请求
+    isLoading: false
+  }
+}
+```
+
+* **Step.2：在 `ArtList.vue` 组件的模板结构中，在 `<van-list>` 之外包裹实现下拉刷新的 `<van-pull-refresh>` 组件**
+
+```html
+<template>
+  <div>
+    <!-- 下拉刷新 -->
+    <van-pull-refresh v-model="isLoading" @refresh="onRefresh">
+      <!-- 上拉加载更多 -->
+      <van-list v-model="loading" :finished="finished" finished-text="没有更多了" @load="onLoad" :immediate-check="false">
+        <!-- 循环渲染文章的列表 -->
+        <art-item v-for="item in artlist" :key="item.art_id" :article="item"></art-item>
+      </van-list>
+    </van-pull-refresh>
+  </div>
+</template>
+```
+
+* **Step.3：在 `ArtList.vue` 组件的 `methods` 中，声明 `@refresh` 的事件处理函数 `onRefresh`**
+
+```js
+methods: {
+  // 下拉刷新
+  onRefresh() {
+    console.log('触发了下拉刷新')
+  }
+}
+
+
+```
+
+* **Step.4：在 `ArtList.vue` 组件 `methods` 节点下的 `onRefresh` 方法中，调用 `initArtList` 函数请求下拉刷新的数据**
+
+```js
+// 下拉刷新
+onRefresh() {
+  this.initArtList(true)
+}
+```
+
+* **Step.5：改造 `methods` 中的 `initArtList` 函数，通过形参接收调用者传递过来的值**
+
+```js
+methods: {
+  // 初始化文章的列表数据
+  // 如果 isRefresh 的值为 true，证明是下拉刷新，在最终拼接数据时，应该是“新数据”在前，“旧数据”在后
+  // 如果 isRefresh 的值不为 true，证明不是下拉刷新，则拼接数据时，应该是“旧数据”在前，“新数据”在后
+  async initArtList(isRefresh) {
+    // 省略其它代码...
+  }
+}
+```
+
+* **Step.6：进一步改造 `initArtList` 函数，根据 `isRefresh` 的值，来决定如何拼接请求到的数据**
+
+```js
+// 初始化文章的列表数据
+async initArtList(isRefresh) {
+  // 请求 API 接口
+  const { data: res } = await getArtListAPI(this.channelId)
+  if (res.message === 'OK') {
+    // 为时间戳重新赋值
+    this.timestamp = res.data.pre_timestamp
+    // 判断是否为下拉刷新
+    if (isRefresh) {
+      // 下拉刷新
+      // 1. “新数据”在前，“旧数据”在后
+      this.artlist = [...res.data.results, ...this.artlist]
+      // 2. 重置 isLoading 为 false
+      this.isLoading = false
+    } else {
+      // 上拉加载
+      // 1. “旧数据”在前，“新数据”在后
+      this.artlist = [...this.artlist, ...res.data.results]
+      // 2. 重置 loading 为 false
+   this.loading = false
+    }
+
+    // 3. 判断所有的数据是否已加载完毕
+    if (res.data.pre_timestamp === null) {
+      this.finished = true
+    }
+  }
+}
+```
+
+* **Step.7：没有更多数据时，禁用下拉刷新的效果**
+
+```html
+<!-- 下拉刷新 -->
+<van-pull-refresh v-model="isLoading" @refresh="onRefresh" :disabled="finished"></van-pull-refresh>
+```
 
 :::
 
 ## 格式化时间
 
+::: tip 目标
+这一小节，我们的目标是实现一个基于当前时间的过滤器，基于 [day.js](https://dayjs.fenxianglu.cn/) 可以方便的实现相对时间的计算
+:::
+
+::: warning 步骤
+
+1. 安装 `day.js` 包：
+2. 在 `main.js` 入口文件中导入 `day.js` 相关的模块：
+3. 在 `main.js` 入口文件中，配置`插件和语言包`：
+4. 在 `main.js` 入口文件中，定义格式化时间的`全局过滤器`：
+5. 在 `ArtItem.vue` 组件中，使用`全局过滤器格式化时间`：
+:::
+
+::: info 体验
+
+* **Step.1：安装 `day.js` 包**
+
+```bash
+npm install dayjs --save
+```
+
+* **Step.2：在 `main.js` 入口文件中导入 `day.js` 相关的模块**
+
+```js
+// 导入 dayjs 的核心模块
+import dayjs from 'dayjs'
+
+// 导入计算相对时间的插件
+import relativeTime from 'dayjs/plugin/relativeTime'
+
+// 导入中文语言包
+import zh from 'dayjs/locale/zh-cn'
+```
+
+* **Step.3：在 `main.js` 入口文件中，配置`插件和语言包`**
+
+```js
+// 配置“计算相对时间”的插件
+dayjs.extend(relativeTime)
+
+// 配置中文语言包
+dayjs.locale(zh)
+```
+
+* **Step.4：在 `main.js` 入口文件中，定义格式化时间的`全局过滤器`**
+
+```js
+// dt 参数是文章的发表时间
+Vue.filter('dateFormat', dt => {
+  // 调用 dayjs() 得到的是当前的时间
+  // .to() 方法的返回值，是计算出来的“相对时间”
+  return dayjs().to(dt)
+})
+```
+
+* **Step.5：在 `ArtItem.vue` 组件中，使用`全局过滤器格式化时间`**
+
+```html
+<!-- label 区域的插槽 -->
+<template #label>
+  <div class="label-box">
+    <span>{{article.aut_name}} &nbsp;&nbsp; {{article.comm_count}}评论 &nbsp;&nbsp; {{article.pubdate | dateFormat}}</span>
+    <!-- 关闭按钮 -->
+    <van-icon name="cross" />
+  </div>
+</template>
+```
+
+:::
+
+::: danger 总结
+
+* 【重点】
+* 【难点】
+* 【注意点】
+* 【面试题】
+:::
+
 ## 文章列表图片的懒加载
+
+::: tip 目标
+这一小节，我们的目标是实现文章列表图片的懒加载，基于 Vant 的 [Lazyload 懒加载](https://vant-contrib.gitee.io/vant/#/zh-CN/lazyload)，可以轻松实现列表中图片的懒加载效果
+:::
+
+::: warning 步骤
+
+1. 在 `main.js` 入口文件中，按需导入 `Lazyload` 指令
+2. 在`main.js` 中将 `Lazyload` 注册为全局可用的指令
+3. 在 `ArtItem.vue` 组件中，删除 `<img>` 标签的 `src 属性`，并应用 `v-lazy 指令`，指令的值是要展示的图片地址
+:::
+
+::: info 体验
+
+* **Step.1：在 `main.js` 入口文件中，按需导入 `Lazyload` 指令**
+
+```js
+import Vant, { Lazyload } from 'vant'
+```
+
+* **Step.2：在`main.js` 中将 `Lazyload` 注册为全局可用的指令**
+
+```js
+Vue.use(Lazyload)
+```
+
+* **Step.3：在 `ArtItem.vue` 组件中，删除 `<img>` 标签的 `src 属性`，并应用 `v-lazy 指令`，指令的值是要展示的图片地址**
+
+```html
+<!-- 单张图片 -->
+<img alt="" class="thumb" v-if="article.cover.type === 1" v-lazy="article.cover.images[0]">
+
+<!-- 三张图片 -->
+<div class="thumb-box" v-if="article.cover.type === 3">
+  <img alt="" class="thumb" v-for="(item, index) in article.cover.images" :key="index" v-lazy="item">
+</div>
+```
+
+:::
