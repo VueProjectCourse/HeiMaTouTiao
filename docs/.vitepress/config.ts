@@ -20,7 +20,8 @@ export const sidebar = {
       items: [
         { text: '项目搭建', link: '/initialization/project-create' }, 
         { text: '主页布局', link: '/initialization/main-layout' },  
-        { text: '文章列表', link: '/initialization/article-list' },       
+        { text: '文章列表', link: '/initialization/article-list' },
+        { text: '反馈操作', link: '/initialization/feedback-operation' },
       ]
     }
   ],
