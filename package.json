@@ -1,5 +1,5 @@
 {
-  "name": "heimatoutiao",
+  "name": "heima-toutiao",
   "version": "1.0.1",
   "description": "黑马头条项目",
   "main": "index.js",
@@ -7,6 +7,9 @@
     "doc": "docs"
   },
   "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "lint": "vue-cli-service lint",
     "docs:dev": " vitepress dev docs",
     "docs:build": "vitepress build docs",
     "docs:serve": "vitepress serve docs",
@@ -16,7 +19,32 @@
     "dynamics.js": "^1.1.5",
     "gsap": "^3.9.0",
     "vitepress": "^0.22.2",
-    "wltheme": "^1.0.10"
+    "wltheme": "^1.0.10",
+    "amfe-flexible": "^2.2.1",
+    "axios": "^0.24.0",
+    "core-js": "^3.6.5",
+    "dayjs": "^1.10.7",
+    "vant": "^2.12.12",
+    "vue": "^2.6.11",
+    "vue-router": "^3.2.0",
+    "vuex": "^3.4.0"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "~4.5.15",
+    "@vue/cli-plugin-eslint": "~4.5.15",
+    "@vue/cli-plugin-router": "~4.5.15",
+    "@vue/cli-plugin-vuex": "~4.5.15",
+    "@vue/cli-service": "~4.5.15",
+    "@vue/eslint-config-prettier": "^6.0.0",
+    "babel-eslint": "^10.1.0",
+    "eslint": "^6.7.2",
+    "eslint-plugin-prettier": "^3.3.1",
+    "eslint-plugin-vue": "^6.2.2",
+    "less": "^3.0.4",
+    "less-loader": "^5.0.0",
+    "prettier": "^2.2.1",
+    "postcss-pxtorem": "^5.1.1",
+    "vue-template-compiler": "^2.6.11"
   },
   
   "repository": {

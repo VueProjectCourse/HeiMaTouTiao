@@ -22,6 +22,7 @@ export const sidebar = {
         { text: '主页布局', link: '/initialization/main-layout' },  
         { text: '文章列表', link: '/initialization/article-list' },
         { text: '反馈操作', link: '/initialization/feedback-operation' },
+        { text: '登录操作', link: '/initialization/login' },
       ]
     }
   ],
