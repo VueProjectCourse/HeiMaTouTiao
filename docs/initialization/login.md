@@ -241,6 +241,36 @@ mobile: [
 ```
 
 * **Step.3： 为手机号添加pattern正则进行校验**
+
+```html
+<template>
+    <!-- 登录的表单 -->
+    <van-form>
+      <van-field
+        v-model="form.mobile"
+        type="tel"
+        label="手机号码"
+        placeholder="请输入手机号码"
+        required
+        :rules="rules.mobile"
+      ></van-field>
+      <van-field
+        v-model="form.code"
+        type="password"
+        label="登录密码"
+        placeholder="请输入登录密码"
+        required
+        :rules="rules.code"
+      ></van-field>
+      <div style="margin: 16px">
+        <van-button round block type="info" native-type="submit"
+          >提交</van-button
+        >
+      </div>
+    </van-form>
+</template>
+```
+
 :::
 
 ::: danger 总结
