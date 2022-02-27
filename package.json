@@ -18,10 +18,7 @@
     "vitepress": "^0.22.2",
     "wltheme": "^1.0.10"
   },
-  "devDependencies": {
-    "@types/markdown-it": "^12.2.3",
-    "@types/node": "^16.9.1"
-  },
+  
   "repository": {
     "type": "git",
     "url": "git+https://github.com/VueProjectCourse/HeiMaTouTiao.git"
