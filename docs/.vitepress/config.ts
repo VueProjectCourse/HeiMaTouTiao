@@ -23,6 +23,10 @@ export const sidebar = {
         { text: '文章列表', link: '/initialization/article-list' },
         { text: '反馈操作', link: '/initialization/feedback-operation' },
         { text: '登录操作', link: '/initialization/login' },
+        { text: '频道管理', link: '/initialization/channel-manager'},
+        { text: '文章搜索', link: '/initialization/article-search'},
+        { text: '文章详情', link: '/initialization/article-details'},
+        { text: '文章评论', link: '/initialization/article-comment'},
       ]
     }
   ],
