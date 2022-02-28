@@ -695,3 +695,11 @@ instance.interceptors.response.use(
 ```
 
 :::
+
+::: danger 总结
+
+* 【重点】
+* 【难点】
+* 【注意点】
+* 【面试题】
+:::
