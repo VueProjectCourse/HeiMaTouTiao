@@ -28,6 +28,7 @@ export const sidebar = {
         { text: '文章详情', link: '/initialization/article-details'},
         { text: '文章评论', link: '/initialization/article-comment'},
         { text: '个人中心', link: '/initialization/profile'},
+        { text: '小思同学', link: '/initialization/chat' }
       ]
     }
   ],
