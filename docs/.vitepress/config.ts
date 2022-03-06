@@ -28,7 +28,11 @@ export const sidebar = {
         { text: '文章详情', link: '/initialization/article-details'},
         { text: '文章评论', link: '/initialization/article-comment'},
         { text: '个人中心', link: '/initialization/profile'},
-        { text: '小思同学', link: '/initialization/chat' }
+        { text: '小思同学', link: '/initialization/chat' },
+        { text: '页面权限控制', link: '/initialization/permission-control' },
+        { text: 'Token 续签', link: '/initialization/token-renew'},
+        { text: '项目优化', link:'/initialization/project-optimization'},
+        { text: '打包发布', link: '/initialization/build-package' }
       ]
     }
   ],
