@@ -1,196 +1,123 @@
-import fs from 'fs'
-import path from 'path'
-import { defineConfigWithTheme } from 'vitepress'
-import baseConfig from 'wltheme/config'
-import { headerPlugin } from './headerMdPlugin'
-import type { Config } from 'wltheme'
-import { UserConfig } from 'vitepress'
-
-const nav = [
-  {
-    text: '赞助者',
-    link: '/sponsor/'
-  }
-]
-
-export const sidebar = {
-  '/initialization/': [
-    {
-      text: '开始',
-      items: [
-        { text: '项目搭建', link: '/initialization/project-create' }, 
-        { text: '主页布局', link: '/initialization/main-layout' },  
-        { text: '文章列表', link: '/initialization/article-list' },
-        { text: '反馈操作', link: '/initialization/feedback-operation' },
-        { text: '登录操作', link: '/initialization/login' },
-        { text: '频道管理', link: '/initialization/channel-manager'},
-        { text: '文章搜索', link: '/initialization/article-search'},
-        { text: '文章详情', link: '/initialization/article-details'},
-        { text: '文章评论', link: '/initialization/article-comment'},
-        { text: '个人中心', link: '/initialization/profile'},
-        { text: '小思同学', link: '/initialization/chat' },
-        { text: '页面权限控制', link: '/initialization/permission-control' },
-        { text: 'Token 续签', link: '/initialization/token-renew'},
-        { text: '项目优化', link:'/initialization/project-optimization'},
-        { text: '打包发布', link: '/initialization/build-package' }
-      ]
-    }
-  ],
-}
-
-export default defineConfigWithTheme<Config>({
-  extends: baseConfig as () => UserConfig<Config>,
-  lang: 'zh-CN',
+export default {
+  lang: 'en-US',
   title: '黑马头条',
-  description: '黑马头条 - 移动端 JavaScript 项目',
-  scrollOffset: 'header',
-
-  head: [
-    ['meta', { name: 'twitter:site', content: '@vuejs' }],
-    ['meta', { name: 'twitter:card', content: 'summary' }],
-    ['meta', { name: 'twitter:image', content: 'https://vuejs.org/images/logo.png'}],
-    [
-      'script',
-      {},
-      fs.readFileSync(
-        path.resolve(__dirname, './inlined-scripts/restorePreference.js'),
-        'utf-8'
-      )
-    ]
-  ],
-  themeConfig: {
-    nav,
-    sidebar,
-  
-    algolia: {
-      indexName: 'vuejs',
-      appId: 'ML0LEBN7FQ',
-      apiKey: 'f49cbd92a74532cc55cfbffa5e5a7d01',
-      searchParameters: {
-        facetFilters: ['version:v3']
-      }
-    },
-
-    socialLinks: [
-      { icon: 'github', link: 'https://github.com/vuejs/' },
-      { icon: 'twitter', link: 'https://twitter.com/vuejs' },
-      { icon: 'discord', link: 'https://discord.com/invite/HBherRA' }
-    ],
-
-    footer: {
-      license: {
-        text: 'Apache License',
-        link: 'https://opensource.org/licenses/Apache'
-      },
-      copyright: `Copyright © 2016-${new Date().getFullYear()} Yeung WanLum`
-    }
-  },
-
+  description: '一个 移动端 技术论坛',
+  base: "/HeiMaTouTiao",
+  // markdown文件设置
   markdown: {
-    config(md) {
-      md.use(headerPlugin)
-    }
+    lineNumbers: false
   },
-
-  vite: {
-    define: {
-      __VUE_OPTIONS_API__: false
+  themeConfig: {
+    // 设置文档所在的文件夹
+    docsDir: 'docs',
+    // 搜索插件
+    algolia: {
+      apiKey: 'c57105e511faa5558547599f120ceeba',
+      indexName: 'vitepress'
     },
-    optimizeDeps: {
-      include: ['gsap', 'dynamics.js'],
-      exclude: ['@vue/repl']
-    },
-    // @ts-ignore
-    ssr: {
-      external: ['@vue/repl']
-    },
-    server: {
-      host: true,
-      fs: {
-        // for when developing with locally linked theme
-        allow: ['../..']
+    // 顶部导航
+    nav: [
+      { text: 'Guide', link: '/', activeMatch: '^/$|^/guide/' },
+      {
+        text: 'Config Reference',
+        link: '/config/basics',
+        activeMatch: '^/config/'
       }
-    },
-    build: {
-      minify: 'terser',
-      chunkSizeWarningLimit: Infinity,
-      rollupOptions: {
-        output: {
-          chunkFileNames: 'assets/chunks/[name].[hash].js',
-          manualChunks(id, ctx) {
-            if (id.includes('gsap')) {
-              return 'gsap'
-            }
-            if (id.includes('dynamics.js')) {
-              return 'dynamics'
-            }
-            return moveToVendor(id, ctx)
-          }
-        }
-      }
-    },
-    json: {
-      stringify: true
+    ],
+    // 侧边栏导航
+    sidebar: {
+      '/': getGuideSidebar()
     }
-  },
-
-  vue: {
-    reactivityTransform: true
-  }
-})
-
-const cache = new Map<string, boolean>()
-
-/**
- * This is temporarily copied from Vite - which should be exported in a
- * future release.
- *
- * @TODO when this is exported by Vite, VitePress should ship a better
- * manual chunk strategy to split chunks for deps that are imported by
- * multiple pages but not all.
- */
-function moveToVendor(id: string, { getModuleInfo }: any) {
-  if (
-    id.includes('node_modules') &&
-    !/\.css($|\\?)/.test(id) &&
-    staticImportedByEntry(id, getModuleInfo, cache)
-  ) {
-    return 'vendor'
   }
 }
 
-function staticImportedByEntry(
-  id: string,
-  getModuleInfo: any,
-  cache: Map<string, boolean>,
-  importStack: string[] = []
-): boolean {
-  if (cache.has(id)) {
-    return cache.get(id) as boolean
-  }
-  if (importStack.includes(id)) {
-    // circular deps!
-    cache.set(id, false)
-    return false
-  }
-  const mod = getModuleInfo(id)
-  if (!mod) {
-    cache.set(id, false)
-    return false
-  }
+function getGuideSidebar() {
+  return [
+    {
+      text: "前期准备",
+      children: [
+        { text: '项目介绍', link: '/early/introduction' },
+        { text: '项目创建', link: '/early/initialization' },
+        { text: '配置组件库', link: '/early/deploy-vant' },
+        { text: '配置适配插件', link: '/early/deploy-screen-adaptation' },
+        { text: '配置网络请求插件', link: '/early/deploy-axios' },
+        { text: '模板页面开发', link: '/early/layout' },
 
-  if (mod.isEntry) {
-    cache.set(id, true)
-    return true
-  }
-  const someImporterIs = mod.importers.some((importer: string) =>
-    staticImportedByEntry(
-      importer,
-      getModuleInfo,
-      cache,
-      importStack.concat(id)
-    )
-  )
-  cache.set(id, someImporterIs)
-  return someImporterIs
+      ]
+    },
+    {
+      text: "登录页",
+      children: [
+        { text: '渲染登录组件', link: '/middle/login-render-base' },
+        { text: '渲染登录头部', link: '/middle/login-render-header' },
+        { text: '渲染登录表单', link: '/middle/login-render-form' },
+        { text: '添加校验规则', link: '/middle/login-form-rules' },
+        { text: '实现登录方法', link: '/middle/login-form-function' },
+        { text: '存储token到vuex', link: '/middle/login-token-vuex' },
+        { text: '持久化存储token', link: '/middle/login-token-storage' },
+        { text: '全局loading效果', link: '/middle/login-global-loading' },
+        { text: '全局token认证', link: '/middle/login-global-auth' }
+      ]
+    },
+    {
+      text: "首页",
+      children: [
+        { text: '渲染首页组件', link: '/middle/home-render-base' },
+        { text: '频道列表页面', link: '/middle/home-channels-static' },
+        { text: '渲染频道列表', link: '/middle/home-channels-dynamic' },
+        { text: '封装文章列表', link: '/middle/home-article-list' },
+        { text: '获取文章列表数据', link: '/middle/home-article-list-data' },
+        { text: '封装channelId属性', link: '/middle/home-article-list-channelid' },
+        { text: '封装文章列表项', link: '/middle/home-article-list-item' },
+        { text: '文章列表上拉加载', link: '/middle/home-article-pullload' },
+        { text: '文章列表下拉刷新', link: '/middle/home-article-pullrefresh' },
+        { text: '图片懒加载', link: '/middle/home-article-lazyload' },
+        { text: '格式化时间', link: '/middle/home-article-dateformat' },
+      ]
+    },
+    {
+      text: "文章搜索",
+      children: [
+
+      ]
+    },
+    {
+      text: "文章详情",
+      children: [
+
+      ]
+    },
+    {
+      text: "个人中心",
+      children: [
+
+      ]
+    },
+    {
+      text: "小思同学",
+      children: [
+
+      ]
+    },
+    {
+      text: "后期优化",
+      children: [
+
+      ]
+    },
+
+  ]
 }
+
+/** 
+⓵
+⓶
+⓷
+⓸
+⓹
+⓺
+⓻
+⓼
+⓽
+⓾
+*/

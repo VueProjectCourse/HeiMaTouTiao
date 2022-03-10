@@ -10,6 +10,26 @@ export const getUserChannels = () => {
 };
 
 /**
+ * 更新用户频道列表数据的 API
+ * @param {*} channels 是一个数组，格式： [ {id, seq} ]
+ * @returns
+ */
+
+export const updateUserChannels = (channels) => {
+  return request.put("/user/channels", {
+    channels,
+  });
+};
+
+/**
+ * 获取所有频道列表
+ * @returns 返回所有频道
+ */
+export const getAllChannels = () => {
+  return request.get("/channels");
+};
+
+/**
  * 获取文章新闻推荐
  * @param {*} channelId 频道Id
  * @param {*} timestamp 时间戳

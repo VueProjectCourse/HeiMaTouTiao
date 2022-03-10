@@ -1,7 +1,7 @@
 import Vue from "vue";
 import App from "./App.vue";
 import router from "./router";
-import store from "./store";
+import store from "./store/hmIndex";
 
 //#region  配置Vant
 import Vant, { Lazyload } from "vant";

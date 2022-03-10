@@ -1,5 +1,8 @@
 <template>
-  <div class="article-item">
+  <div
+    class="article-item"
+    @click="$router.push('/article/' + article.art_id.toString())"
+  >
     <van-cell>
       <!-- 标题区域的插槽 -->
       <template #title>
@@ -35,7 +38,7 @@
             &nbsp;&nbsp; 发布日期：{{ article.pubdate | formatDate }}</span
           >
           <!-- 关闭按钮 -->
-          <van-icon name="cross" @click.stop="show = true" />
+          <van-icon name="cross" @click.stop="show = true" v-if="closeable" />
         </div>
       </template>
     </van-cell>
@@ -88,6 +91,11 @@ export default {
       type: Object,
       required: true,
     },
+    // 是否有关闭按钮 true false
+    closeable: {
+      type: Boolean,
+      default: true,
+    },
   },
   data() {
     return {
@@ -120,7 +128,7 @@ export default {
     },
     async reportsArticle(type) {
       const { data: res } = await reportArticle(this.artId, type, "");
-      console.log("举报文章", res);
+      // console.log("举报文章", res);
 
       if (res.message === "OK") {
         this.$emit("removeItem", res.data.target);

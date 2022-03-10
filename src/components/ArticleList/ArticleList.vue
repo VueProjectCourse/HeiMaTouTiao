@@ -42,7 +42,7 @@ export default {
     return {
       articleList: [],
       timestamp: new Date().valueOf(),
-      loading: false,
+      loading: true,
       finished: false,
       refreshing: false,
     };
@@ -51,7 +51,7 @@ export default {
     async initArticleList(isRefresh) {
       const { data: res } = await getArticles(this.channelId, this.timestamp);
 
-      console.log(res);
+      // console.log(res);
       if (res.message === "OK") {
         if (isRefresh === true) {
           // 下拉刷新 --> 新数据在前 旧数据在后
