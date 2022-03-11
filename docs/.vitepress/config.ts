@@ -73,24 +73,68 @@ function getGuideSidebar() {
         { text: '文章列表下拉刷新', link: '/middle/home-article-pullrefresh' },
         { text: '图片懒加载', link: '/middle/home-article-lazyload' },
         { text: '格式化时间', link: '/middle/home-article-dateformat' },
+        { text: '展示反馈面板', link: '/middle/home-article-feedback-pannel' },
+        { text: '渲染一级反馈', link: '/middle/home-article-feedback-first' },
+        { text: '渲染二级反馈', link: '/middle/home-article-feedback-second' },
+        { text: '指定面板挂载位置', link: '/middle/home-article-pannel-position' },
+        { text: '设置不感兴趣文章', link: '/middle/home-article-not-interesting' },
+        { text: '渲染频道管理', link: '/middle/home-channel-render' },
+        { text: '渲染更多频道', link: '/middle/home-channel-more' },
+        { text: '实现频道添加', link: '/middle/home-channel-add' },
+        { text: '实现频道删除', link: '/middle/home-channel-minus' },
+        { text: '重置编辑状态', link: '/middle/home-channel-reset' },
+        { text: '频道点击联动', link: '/middle/home-channel-contact' }
       ]
     },
     {
       text: "文章搜索",
       children: [
-
+        { text: '渲染搜索页面', link: '/middle/search-page-render' },
+        { text: '搜索框自动聚焦', link: '/middle/search-input-autofocus' },
+        { text: '输入框防抖', link: '/middle/search-input-debounce' },
+        { text: '关键词高亮', link: '/middle/search-keywords-highlight' },
+        { text: '渲染搜索历史', link: '/middle/search-listory-render' },
+        { text: '添加搜索历史', link: '/middle/search-listory-add' },
+        { text: '存储搜索历史', link: '/middle/search-listory-save' },
+        { text: '清空搜索历史', link: '/middle/search-listory-clean' },
+        { text: '跳转到搜索结果页', link: '/middle/search-result-jump' },
+        { text: '创建搜索结果页组件', link: '/middle/search-result-create' },
+        { text: '渲染搜索结果页', link: '/middle/search-result-render' },
+        { text: '搜索结果上拉加载更多', link: '/middle/search-result-pullload' },
+        { text: '关闭按钮的显示与隐藏', link: '/middle/search-result-toggle' },
       ]
     },
     {
       text: "文章详情",
       children: [
-
+        { text: '创建文章详情组件', link: '/middle/article-detail-create' },
+        { text: '开启props路由传参', link: '/middle/article-detail-props' },
+        { text: '渲染文章详情数据', link: '/middle/article-detail-render' },
+        { text: '关注功能', link: '/middle/article-detail-follow' },
+        { text: '取消关注', link: '/middle/article-detail-unfollow' },
+        { text: '点赞功能', link: '/middle/article-detail-like' },
+        { text: '取消点赞', link: '/middle/article-detail-unlike' },
+        { text: '创建评论组件', link: '/middle/article-detail-comment-create' },
+        { text: '渲染评论组件', link: '/middle/article-detail-comment-render' },
+        { text: '评论点赞', link: '/middle/article-detail-comment-like' },
+        { text: '评论取消点赞', link: '/middle/article-detail-comment-unlike' },
+        { text: '创建发布评论组件', link: '/middle/article-detail-pubcomment-create' },
+        { text: '底部评论按需展示', link: '/middle/article-detail-pubcomment-condition' },
+        { text: '输入框自动聚焦', link: '/middle/article-detail-pubcomment-autofocus'},
+        { text: '渲染评论的总数量', link: '/middle/article-detail-pubcomment-count'},
+        { text: '发布评论功能',link: '/middle/article-detail-pubcomment-function'},
+        { text: '平滑滚动', link: '/middle/article-detail-pubcomment-popmotion'}
       ]
     },
     {
       text: "个人中心",
       children: [
-
+        { text: '渲染个人中心', link: '/middle/profile-render' },
+        { text: '退出登录', link: '/middle/profile-logout' },
+        { text: '渲染用户编辑页面', link: '/middle/profile-user-edit-render' },
+        {text: '修改用户姓名', link: '/middle/profile-user-edit-name'},
+        {text: '修改用户生日', link: '/middle/profile-user-edit-birthday'},
+        {text: '修改用户头像', link: '/middle/profile-user-edit-avatar'}
       ]
     },
     {
