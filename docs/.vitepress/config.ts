@@ -120,10 +120,10 @@ function getGuideSidebar() {
         { text: '评论取消点赞', link: '/middle/article-detail-comment-unlike' },
         { text: '创建发布评论组件', link: '/middle/article-detail-pubcomment-create' },
         { text: '底部评论按需展示', link: '/middle/article-detail-pubcomment-condition' },
-        { text: '输入框自动聚焦', link: '/middle/article-detail-pubcomment-autofocus'},
-        { text: '渲染评论的总数量', link: '/middle/article-detail-pubcomment-count'},
-        { text: '发布评论功能',link: '/middle/article-detail-pubcomment-function'},
-        { text: '平滑滚动', link: '/middle/article-detail-pubcomment-popmotion'}
+        { text: '输入框自动聚焦', link: '/middle/article-detail-pubcomment-autofocus' },
+        { text: '渲染评论的总数量', link: '/middle/article-detail-pubcomment-count' },
+        { text: '发布评论功能', link: '/middle/article-detail-pubcomment-function' },
+        { text: '平滑滚动', link: '/middle/article-detail-pubcomment-popmotion' }
       ]
     },
     {
@@ -132,15 +132,25 @@ function getGuideSidebar() {
         { text: '渲染个人中心', link: '/middle/profile-render' },
         { text: '退出登录', link: '/middle/profile-logout' },
         { text: '渲染用户编辑页面', link: '/middle/profile-user-edit-render' },
-        {text: '修改用户姓名', link: '/middle/profile-user-edit-name'},
-        {text: '修改用户生日', link: '/middle/profile-user-edit-birthday'},
-        {text: '修改用户头像', link: '/middle/profile-user-edit-avatar'}
+        { text: '修改用户姓名', link: '/middle/profile-user-edit-name' },
+        { text: '修改用户生日', link: '/middle/profile-user-edit-birthday' },
+        { text: '修改用户头像', link: '/middle/profile-user-edit-avatar' }
       ]
     },
     {
       text: "小思同学",
       children: [
-
+        { text: 'websocket介绍', link: '/middle/websocket-introduce' },
+        { text: '创建聊天组件页面', link: '/middle/websocket-chat-page' },
+        { text: '动态渲染聊天消息', link: '/middle/websocket-chat-render' },
+        { text: '动态渲染用户头像', link: '/middle/websocket-avatar-render' },
+        { text: '动态添加聊天消息', link: '/middle/websocket-chat-push' },
+        { text: '安装和配置websocket', link: '/middle/websocket-install-config' },
+        { text: '创建和销毁socket实例', link: '/middle/websocket-create-destory'},
+        { text: '监听连接建立和关闭', link: '/middle/websocket-connect-listen'},
+        { text: '接收服务器的消息', link: '/middle/websocket-message-receive'},
+        { text: '向服务器发送消息', link: '/middle/websocket-message-send'},
+        { text: '自动滚动到底部', link: '/middle/websocket-auto-scroll-bottom'}
       ]
     },
     {
