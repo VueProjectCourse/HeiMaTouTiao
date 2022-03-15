@@ -156,7 +156,10 @@ function getGuideSidebar() {
     {
       text: "后期优化",
       children: [
-
+        { text: '页面权限控制', link: '/late/permission-control'},
+        { text: 'token续签', link: '/late/token-renew'},
+        { text: '项目优化', link: '/late/project-optimization'},
+        { text: '项目打包', link: '/late/build-package'}
       ]
     },
 
