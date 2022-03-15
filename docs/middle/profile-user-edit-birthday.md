@@ -99,19 +99,16 @@ data() {
 
 * **Step.2：在生日的动作面板中，快速渲染选择年月日的事件选择器组件**
 
-```js
-data() {
-  return {
-    // 省略其它数据项...
-
-    // 最小可选日期（0 表示 1月份）
-    minDate: new Date(1900, 0, 1),
-    // 最大可选日期（11 表示 12月份）
-    maxDate: new Date(2050, 11, 31),
-    // 当前日期
-    currentDate: new Date()
-  }
-}
+```html
+<van-action-sheet v-model="showBirthDialog">
+  <van-datetime-picker
+    v-model="currentDate"
+    type="date"
+    title="选择年月日"
+    :min-date="minDate"
+    :max-date="maxDate"
+  />
+</van-action-sheet>
 ```
 
 * **Step.3：在展示选择生日的动作面板之前，为 data 中的 currentDate 赋初始**
