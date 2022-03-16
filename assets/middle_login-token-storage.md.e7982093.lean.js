@@ -1,0 +1,1 @@
+import{_ as n,c as s,o as a,a as t}from"./app.e4ff3064.js";const g='{"title":"\u6301\u4E45\u5316\u5B58\u50A8token","description":"","frontmatter":{},"headers":[],"relativePath":"middle/login-token-storage.md"}',e={},o=t("",5),p=[o];function c(l,i,u,r,k,d){return a(),s("div",null,p)}var m=n(e,[["render",c]]);export{g as __pageData,m as default};

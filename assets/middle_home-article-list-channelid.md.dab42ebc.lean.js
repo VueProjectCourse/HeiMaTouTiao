@@ -1,0 +1,1 @@
+import{_ as a,c as n,o as s,a as t}from"./app.e4ff3064.js";const m='{"title":"\u5C01\u88C5channelled\u5C5E\u6027","description":"","frontmatter":{},"headers":[],"relativePath":"middle/home-article-list-channelid.md"}',p={},e=t("",5),o=[e];function c(l,u,i,r,k,d){return s(),n("div",null,o)}var h=a(p,[["render",c]]);export{m as __pageData,h as default};

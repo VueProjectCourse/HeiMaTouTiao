@@ -1,0 +1,1 @@
+import{_ as s,c as n,o as e,a as o}from"./app.e4ff3064.js";const b='{"title":"\u521B\u5EFA\u548C\u9500\u6BC1 socket \u5B9E\u4F8B","description":"","frontmatter":{},"headers":[],"relativePath":"middle/websocket-create-destory.md"}',t={},a=o("",5),c=[a];function p(l,i,d,k,u,r){return e(),n("div",null,c)}var m=s(t,[["render",p]]);export{b as __pageData,m as default};

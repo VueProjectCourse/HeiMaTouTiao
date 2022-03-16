@@ -1,0 +1,1 @@
+import{_ as s,c as n,o as a,a as t}from"./app.e4ff3064.js";const m='{"title":"\u641C\u7D22\u6846\u81EA\u52A8\u805A\u7126","description":"","frontmatter":{},"headers":[],"relativePath":"middle/search-input-autofocus.md"}',o={},c=t("",5),e=[c];function p(l,i,u,d,r,k){return a(),n("div",null,e)}var h=s(o,[["render",p]]);export{m as __pageData,h as default};

@@ -1,0 +1,1 @@
+import{_ as s,c as n,o as a,a as t}from"./app.e4ff3064.js";const _='{"title":"\u5B89\u88C5\u548C\u914D\u7F6EAxios","description":"","frontmatter":{},"headers":[],"relativePath":"early/deploy-axios.md"}',p={},o=t("",5),e=[o];function c(l,i,r,k,u,d){return a(),n("div",null,e)}var g=s(p,[["render",c]]);export{_ as __pageData,g as default};

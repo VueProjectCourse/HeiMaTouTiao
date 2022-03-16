@@ -1,0 +1,1 @@
+import{_ as s,c as a,o as n,a as o}from"./app.e4ff3064.js";const m='{"title":"\u6E32\u67D3\u767B\u5F55\u8868\u5355","description":"","frontmatter":{},"headers":[],"relativePath":"middle/login-render-form.md"}',t={},p=o("",5),e=[p];function r(l,c,k,i,u,d){return n(),a("div",null,e)}var v=s(t,[["render",r]]);export{m as __pageData,v as default};

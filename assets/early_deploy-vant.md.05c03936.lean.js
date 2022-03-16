@@ -1,0 +1,1 @@
+import{_ as n,c as a,o as s,a as t}from"./app.e4ff3064.js";const v='{"title":"\u914D\u7F6EVant\u7EC4\u4EF6\u5E93","description":"","frontmatter":{},"headers":[],"relativePath":"early/deploy-vant.md"}',p={},o=t("",5),e=[o];function c(l,u,i,k,r,g){return s(),a("div",null,e)}var m=n(p,[["render",c]]);export{v as __pageData,m as default};

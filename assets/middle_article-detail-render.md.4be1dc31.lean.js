@@ -1,0 +1,1 @@
+import{_ as n,c as a,o as s,a as t}from"./app.e4ff3064.js";const m='{"title":"\u6E32\u67D3\u6587\u7AE0\u8BE6\u60C5\u6570\u636E","description":"","frontmatter":{},"headers":[],"relativePath":"middle/article-detail-render.md"}',p={},o=t("",5),e=[o];function c(l,u,i,k,r,d){return s(),a("div",null,e)}var v=n(p,[["render",c]]);export{m as __pageData,v as default};

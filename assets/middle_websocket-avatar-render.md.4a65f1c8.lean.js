@@ -1,0 +1,1 @@
+import{_ as s,c as a,o as n,a as t}from"./app.e4ff3064.js";const m='{"title":"\u52A8\u6001\u6E32\u67D3\u7528\u6237\u5934\u50CF","description":"","frontmatter":{},"headers":[],"relativePath":"middle/websocket-avatar-render.md"}',p={},o=t("",5),e=[o];function c(l,u,i,r,k,d){return n(),a("div",null,e)}var v=s(p,[["render",c]]);export{m as __pageData,v as default};

@@ -1,0 +1,1 @@
+import{_ as n,c as s,o as a,a as t}from"./app.e4ff3064.js";const f='{"title":"\u5B58\u50A8token\u5230vuex","description":"","frontmatter":{},"headers":[],"relativePath":"middle/login-token-vuex.md"}',o={},p=t("",5),e=[p];function c(l,u,k,i,r,d){return a(),s("div",null,e)}var y=n(o,[["render",c]]);export{f as __pageData,y as default};

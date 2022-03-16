@@ -1,0 +1,1 @@
+import{_ as a,c as n,o as s,a as t}from"./app.e4ff3064.js";const m='{"title":"\u52A8\u6001\u6E32\u67D3\u804A\u5929\u6D88\u606F","description":"","frontmatter":{},"headers":[],"relativePath":"middle/websocket-chat-render.md"}',p={},o=t("",5),c=[o];function e(l,u,i,k,r,d){return s(),n("div",null,c)}var v=a(p,[["render",e]]);export{m as __pageData,v as default};

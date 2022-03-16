@@ -1,0 +1,1 @@
+import{_ as a,c as s,o as n,a as t}from"./app.e4ff3064.js";const g='{"title":"\u5E95\u90E8\u8BC4\u8BBA\u6309\u9700\u5C55\u793A","description":"","frontmatter":{},"headers":[],"relativePath":"middle/article-detail-pubcomment-condition.md"}',o={},p=t("",5),e=[p];function c(l,u,i,d,k,r){return n(),s("div",null,e)}var v=a(o,[["render",c]]);export{g as __pageData,v as default};

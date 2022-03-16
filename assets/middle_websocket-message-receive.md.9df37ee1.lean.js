@@ -1,0 +1,1 @@
+import{_ as s,c as n,o as a,a as t}from"./app.e4ff3064.js";const g='{"title":"\u63A5\u6536\u670D\u52A1\u5668\u7684\u6D88\u606F","description":"","frontmatter":{},"headers":[],"relativePath":"middle/websocket-message-receive.md"}',e={},o=t("",5),c=[o];function p(l,i,u,d,r,k){return a(),n("div",null,c)}var _=s(e,[["render",p]]);export{g as __pageData,_ as default};

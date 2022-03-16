@@ -1,0 +1,1 @@
+import{_ as n,c as s,o as a,a as t}from"./app.e4ff3064.js";const h='{"title":"\u5B9E\u73B0\u9891\u9053\u6DFB\u52A0","description":"","frontmatter":{},"headers":[],"relativePath":"middle/home-channel-add.md"}',p={},o=t("",5),e=[o];function c(l,u,k,i,r,d){return a(),s("div",null,e)}var g=n(p,[["render",c]]);export{h as __pageData,g as default};

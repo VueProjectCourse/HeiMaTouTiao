@@ -1,0 +1,1 @@
+import{_ as a,c as n,o as s,a as t}from"./app.e4ff3064.js";const g='{"title":"\u5C55\u793A\u53CD\u9988\u9762\u677F","description":"","frontmatter":{},"headers":[],"relativePath":"middle/home-article-feedback-pannel.md"}',e={},o=t("",5),p=[o];function c(l,u,i,k,r,d){return s(),n("div",null,p)}var v=a(e,[["render",c]]);export{g as __pageData,v as default};

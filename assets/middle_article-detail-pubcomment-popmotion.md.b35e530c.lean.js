@@ -1,0 +1,1 @@
+import{_ as n,c as s,o as a,a as t}from"./app.e4ff3064.js";const g='{"title":"\u5E73\u6ED1\u6EDA\u52A8","description":"","frontmatter":{},"headers":[],"relativePath":"middle/article-detail-pubcomment-popmotion.md"}',o={},p=t("",5),e=[p];function c(l,i,u,r,d,k){return a(),s("div",null,e)}var _=n(o,[["render",c]]);export{g as __pageData,_ as default};

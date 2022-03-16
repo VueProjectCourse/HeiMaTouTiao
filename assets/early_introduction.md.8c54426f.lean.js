@@ -1,0 +1,1 @@
+import{_ as t,c as l,o as e,a as o}from"./app.e4ff3064.js";const b='{"title":"\u9879\u76EE\u4ECB\u7ECD","description":"","frontmatter":{},"headers":[],"relativePath":"early/introduction.md"}',i={},d=o("",5),s=[d];function r(a,c,n,p,u,_){return e(),l("div",null,s)}var m=t(i,[["render",r]]);export{b as __pageData,m as default};

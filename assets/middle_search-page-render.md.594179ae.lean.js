@@ -1,0 +1,1 @@
+import{_ as n,c as a,o as s,a as t}from"./app.e4ff3064.js";const m='{"title":"\u6E32\u67D3\u641C\u7D22\u9875\u9762","description":"","frontmatter":{},"headers":[],"relativePath":"middle/search-page-render.md"}',p={},o=t("",5),e=[o];function c(l,u,k,i,r,d){return s(),a("div",null,e)}var q=n(p,[["render",c]]);export{m as __pageData,q as default};

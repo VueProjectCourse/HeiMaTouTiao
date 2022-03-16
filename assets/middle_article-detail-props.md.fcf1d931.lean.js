@@ -1,0 +1,1 @@
+import{_ as s,c as a,o as n,a as p}from"./app.e4ff3064.js";const m='{"title":"\u5F00\u542Fprops\u8DEF\u7531\u4F20\u53C2","description":"","frontmatter":{},"headers":[],"relativePath":"middle/article-detail-props.md"}',t={},o=p("",4),e=[o];function c(r,l,i,d,k,u){return n(),a("div",null,e)}var g=s(t,[["render",c]]);export{m as __pageData,g as default};

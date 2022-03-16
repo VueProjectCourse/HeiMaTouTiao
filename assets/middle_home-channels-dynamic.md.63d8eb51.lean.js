@@ -1,0 +1,1 @@
+import{_ as n,c as s,o as a,a as t}from"./app.e4ff3064.js";const g='{"title":"\u6E32\u67D3\u9891\u9053\u5217\u8868","description":"","frontmatter":{},"headers":[],"relativePath":"middle/home-channels-dynamic.md"}',e={},o=t("",5),p=[o];function c(l,u,i,r,k,d){return a(),s("div",null,p)}var h=n(e,[["render",c]]);export{g as __pageData,h as default};

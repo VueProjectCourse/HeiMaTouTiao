@@ -1,0 +1,1 @@
+import{_ as o,c as t,o as n,a as s}from"./app.e4ff3064.js";const m='{"title":"\u5168\u5C40token\u8BA4\u8BC1","description":"","frontmatter":{},"headers":[],"relativePath":"middle/login-global-auth.md"}',e={},a=s("",5),c=[a];function l(i,p,r,d,u,k){return n(),t("div",null,c)}var h=o(e,[["render",l]]);export{m as __pageData,h as default};

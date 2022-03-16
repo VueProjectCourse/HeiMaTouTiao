@@ -1,0 +1,1 @@
+import{_ as s,c as n,o as a,a as t}from"./app.e4ff3064.js";const h='{"title":"\u6DFB\u52A0\u641C\u7D22\u5386\u53F2","description":"","frontmatter":{},"headers":[],"relativePath":"middle/search-listory-add.md"}',o={},p=t("",5),e=[p];function c(l,i,u,k,r,d){return a(),n("div",null,e)}var y=s(o,[["render",c]]);export{h as __pageData,y as default};

@@ -1,0 +1,1 @@
+import{_ as a,c as s,o as n,a as t}from"./app.e4ff3064.js";const m='{"title":"\u8DF3\u8F6C\u5230\u641C\u7D22\u7ED3\u679C\u9875","description":"","frontmatter":{},"headers":[],"relativePath":"middle/search-result-jump.md"}',p={},o=t("",5),e=[o];function c(l,u,i,k,r,d){return n(),s("div",null,e)}var v=a(p,[["render",c]]);export{m as __pageData,v as default};

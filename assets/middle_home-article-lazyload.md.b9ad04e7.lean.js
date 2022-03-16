@@ -1,0 +1,1 @@
+import{_ as a,c as s,o as n,a as t}from"./app.e4ff3064.js";const v='{"title":"\u56FE\u7247\u61D2\u52A0\u8F7D","description":"","frontmatter":{},"headers":[],"relativePath":"middle/home-article-lazyload.md"}',o={},p=t("",5),e=[p];function c(l,u,i,r,k,d){return n(),s("div",null,e)}var g=a(o,[["render",c]]);export{v as __pageData,g as default};
